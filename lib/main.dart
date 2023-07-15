@@ -3,6 +3,7 @@ import 'dart:math';
 
 void main() => runApp(
       MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: BallPage(),
       ),
     );
@@ -27,16 +28,17 @@ class Ball extends StatefulWidget {
 }
 
 class _BallState extends State<Ball> {
-  int _ballNumber = 0;
+  int _ballNumber = 1;
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: TextButton(
-        child: Image.asset('images/ball1.png'),
+        child: Image.asset('images/ball$_ballNumber.png'),
         onPressed: () {
-          _ballNumber = Random().nextInt(5);
-          print(_ballNumber);
+          setState(() {
+            _ballNumber = Random().nextInt(5) + 1;
+          });
         },
       ),
     );
