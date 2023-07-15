@@ -10,6 +10,7 @@ class BallPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue,
       appBar: AppBar(
         backgroundColor: Colors.blue.shade800,
         title: Text('Ask Me Anything'),
@@ -27,10 +28,12 @@ class Ball extends StatefulWidget {
 class _BallState extends State<Ball> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.blue,
-      child: Center(
+    return Center(
+      child: TextButton(
         child: Image.asset('images/ball1.png'),
+        onPressed: () {
+          print('I got clicked');
+        },
       ),
     );
   }
